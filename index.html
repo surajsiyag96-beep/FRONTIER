@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontier | Coal & Natural Resources</title>
+    
+    <!-- Google Fonts: Montserrat for headings (corporate feel) and Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        frontier: {
+                            50: '#fbf9f6',
+                            100: '#f5efe8',
+                            200: '#eadad0',
+                            300: '#dcbfae',
+                            400: '#ca9e85',
+                            500: '#be8161', // Amber/Earth accent
+                            600: '#b16a4c',
+                            700: '#94533e',
+                            800: '#794535',
+                            900: '#623a2d',
+                            950: '#0a0a0a', // Deep black/slate
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for animations and overrides */
+        body { background-color: #050505; color: #e2e8f0; }
+        
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Smooth Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #be8161; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94533e; }
+        
+        /* Parallax Background Helper */
+        .bg-parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-frontier-500 selection:text-white flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2 group">
+                <div class="w-8 h-8 bg-frontier-500 flex items-center justify-center transform rotate-45 group-hover:rotate-90 transition-transform duration-500">
+                    <div class="w-3 h-3 bg-white transform -rotate-45"></div>
+                </div>
+                <span class="font-heading font-bold text-2xl tracking-widest text-white uppercase">Frontier</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-sm font-medium text-slate-300 hover:text-frontier-500 transition-colors uppercase tracking-wide">About</a>
+                <a href="#operations" class="text-sm font-medium text-slate-300 hover:text-frontier-500 transition-colors uppercase tracking-wide">Operations</a>
+                <a href="#leadership" class="text-sm font-medium text-slate-300 hover:text-frontier-500 transition-colors uppercase tracking-wide">Leadership</a>
+                <a href="#sustainability" class="text-sm font-medium text-slate-300 hover:text-frontier-500 transition-colors uppercase tracking-wide">Sustainability</a>
+                <a href="#contact" class="px-5 py-2 border border-frontier-500 text-frontier-500 hover:bg-frontier-500 hover:text-white transition-all duration-300 text-sm font-bold uppercase tracking-wider">Investor Portal</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-frontier-950 border-t border-white/10 absolute w-full left-0 top-full flex flex-col p-6 space-y-4 shadow-2xl">
+            <a href="#about" class="text-sm font-medium text-slate-300 hover:text-frontier-500 uppercase tracking-wide">About</a>
+            <a href="#operations" class="text-sm font-medium text-slate-300 hover:text-frontier-500 uppercase tracking-wide">Operations</a>
+            <a href="#leadership" class="text-sm font-medium text-slate-300 hover:text-frontier-500 uppercase tracking-wide">Leadership</a>
+            <a href="#sustainability" class="text-sm font-medium text-slate-300 hover:text-frontier-500 uppercase tracking-wide">Sustainability</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center bg-parallax" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop');">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-frontier-950"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
+            <p class="text-frontier-500 font-bold tracking-[0.2em] uppercase mb-4 reveal">Powering Human Progress</p>
+            <h1 class="font-heading text-5xl md:text-7xl font-bold text-white leading-tight mb-6 reveal">
+                Global Leaders in <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Natural Resources</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto font-light reveal">
+                Frontier extracts, processes, and delivers premium coal and critical energy resources responsibly to fuel the world's infrastructure and industrial evolution.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+                <a href="#operations" class="px-8 py-4 bg-frontier-500 text-white font-bold tracking-widest uppercase text-sm hover:bg-frontier-600 transition-colors w-full sm:w-auto">Our Operations</a>
+                <a href="#leadership" class="px-8 py-4 border border-white/30 text-white font-bold tracking-widest uppercase text-sm hover:bg-white/10 transition-colors w-full sm:w-auto">Meet The Chairman</a>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
+
+    <!-- Operations Overview -->
+    <section id="operations" class="py-24 bg-frontier-950 relative border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mb-4">Core Operations</h2>
+                <div class="w-24 h-1 bg-frontier-500 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-black/50 border border-white/10 p-8 hover:border-frontier-500 transition-colors duration-300 group reveal">
+                    <div class="w-14 h-14 bg-white/5 flex items-center justify-center mb-6 group-hover:bg-frontier-500 transition-colors duration-300">
+                        <svg class="w-7 h-7 text-frontier-500 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3 uppercase tracking-wide">Metallurgical Coal</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Supplying the highest grade coking coal essential for global steel production and heavy infrastructure development.</p>
+                    <a href="#" class="text-frontier-500 text-sm font-bold tracking-widest uppercase hover:text-white transition-colors flex items-center">Explore <span class="ml-2">→</span></a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-black/50 border border-white/10 p-8 hover:border-frontier-500 transition-colors duration-300 group reveal">
+                    <div class="w-14 h-14 bg-white/5 flex items-center justify-center mb-6 group-hover:bg-frontier-500 transition-colors duration-300">
+                        <svg class="w-7 h-7 text-frontier-500 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3 uppercase tracking-wide">Energy Transition</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Extracting and processing transition fuels, natural gas, and critical minerals required for the next generation of energy.</p>
+                    <a href="#" class="text-frontier-500 text-sm font-bold tracking-widest uppercase hover:text-white transition-colors flex items-center">Explore <span class="ml-2">→</span></a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-black/50 border border-white/10 p-8 hover:border-frontier-500 transition-colors duration-300 group reveal">
+                    <div class="w-14 h-14 bg-white/5 flex items-center justify-center mb-6 group-hover:bg-frontier-500 transition-colors duration-300">
+                        <svg class="w-7 h-7 text-frontier-500 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3 uppercase tracking-wide">Global Logistics</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">A massive, proprietary fleet of rail and marine assets ensuring reliable, uninterrupted delivery to markets worldwide.</p>
+                    <a href="#" class="text-frontier-500 text-sm font-bold tracking-widest uppercase hover:text-white transition-colors flex items-center">Explore <span class="ml-2">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chairman Section -->
+    <section id="leadership" class="py-24 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Image Side -->
+                <div class="w-full lg:w-5/12 relative reveal">
+                    <!-- Decorative background element -->
+                    <div class="absolute -inset-4 border border-frontier-500/30 transform translate-x-4 translate-y-4"></div>
+                    <div class="relative aspect-[3/4] bg-slate-900 overflow-hidden">
+                        <!-- Chairman Placeholder Image (Corporate portrait) -->
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop" onerror="this.src='https://placehold.co/600x800/1a1a1a/be8161?text=Harish+Hudda'" alt="Chairman Harish Hudda" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                        
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-6">
+                            <h4 class="font-heading font-bold text-2xl text-white">Harish Hudda</h4>
+                            <p class="text-frontier-500 text-sm font-bold tracking-widest uppercase">Chairman & CEO</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Side -->
+                <div class="w-full lg:w-7/12 reveal">
+                    <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mb-6">Visionary Leadership for a Changing World</h2>
+                    <p class="text-slate-300 mb-6 text-lg font-light leading-relaxed">
+                        Under the strategic direction of Chairman <strong>Harish Hudda</strong>, Frontier has evolved from a regional mining operation into a global titan of natural resources. His philosophy centers on operational excellence, rigorous safety standards, and long-term economic stability.
+                    </p>
+                    
+                    <blockquote class="border-l-4 border-frontier-500 pl-6 py-2 my-8">
+                        <p class="text-xl text-slate-200 italic font-heading">
+                            "At Frontier, we understand that energy and materials are the bedrock of civilization. Our duty is to extract responsibly, process efficiently, and deliver relentlessly to ensure the world never stops moving forward."
+                        </p>
+                    </blockquote>
+
+                    <p class="text-slate-400 text-sm leading-relaxed mb-8">
+                        Mr. Hudda brings over 30 years of industrial expertise, guiding Frontier through complex global market cycles. His current mandate focuses heavily on modernizing mining infrastructure, integrating AI in resource logistics, and mapping the company's sustainable transition pathways for the next decade.
+                    </p>
+
+                    <a href="#" class="inline-block px-6 py-3 border border-white/20 text-white text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors duration-300">
+                        Read Full Executive Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics / Impact Section -->
+    <section class="py-20 border-y border-white/10 relative bg-parallax" style="background-image: url('https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=2000&auto=format&fit=crop');">
+        <div class="absolute inset-0 bg-black/85 backdrop-blur-sm"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+                <div class="p-4 reveal">
+                    <div class="font-heading text-5xl font-bold text-frontier-500 mb-2"><span class="counter" data-target="85">0</span>M+</div>
+                    <div class="text-sm text-slate-300 uppercase tracking-widest font-bold">Tons Annual Output</div>
+                </div>
+                <div class="p-4 reveal">
+                    <div class="font-heading text-5xl font-bold text-frontier-500 mb-2"><span class="counter" data-target="24">0</span></div>
+                    <div class="text-sm text-slate-300 uppercase tracking-widest font-bold">Active Global Sites</div>
+                </div>
+                <div class="p-4 reveal">
+                    <div class="font-heading text-5xl font-bold text-frontier-500 mb-2"><span class="counter" data-target="15000">0</span>+</div>
+                    <div class="text-sm text-slate-300 uppercase tracking-widest font-bold">Dedicated Employees</div>
+                </div>
+                <div class="p-4 reveal">
+                    <div class="font-heading text-5xl font-bold text-frontier-500 mb-2">$<span class="counter" data-target="4.2">0</span>B</div>
+                    <div class="text-sm text-slate-300 uppercase tracking-widest font-bold">Market Capitalization</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section id="sustainability" class="py-24 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 text-center reveal">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mb-6">Commitment to the Land</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-12">Resource extraction comes with a heavy responsibility. Frontier invests hundreds of millions annually into land reclamation, water purification, and community development around our operational sites.</p>
+            
+            <div class="relative aspect-video max-w-4xl mx-auto border border-white/10 p-2">
+                <div class="absolute inset-0 bg-frontier-500/20 blur-2xl z-0"></div>
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1500&auto=format&fit=crop" class="w-full h-full object-cover relative z-10" alt="Land Reclamation" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10 flex items-end justify-center pb-8">
+                    <a href="#" class="px-8 py-3 bg-white text-black font-bold uppercase tracking-wider text-sm hover:bg-frontier-500 hover:text-white transition-colors duration-300">Download 2026 ESG Report</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-black border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-6 h-6 bg-frontier-500 transform rotate-45"></div>
+                        <span class="font-heading font-bold text-xl tracking-widest text-white uppercase">Frontier</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Headquartered in the industrial heartlands, operating globally. Frontier is a registered trademark of Frontier Natural Resources Group.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest mb-6 text-sm">Corporate</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-slate-400 hover:text-frontier-500 text-sm transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-frontier-500 text-sm transition-colors">Leadership Team</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-frontier-500 text-sm transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-frontier-500 text-sm transition-colors">Media Room</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest mb-6 text-sm">Investors</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-slate-400 hover:text-frontier-500 text-sm transition-colors">Stock Information</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-frontier-500 text-sm transition-colors">Quarterly Reports</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-frontier-500 text-sm transition-colors">ESG Disclosures</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-frontier-500 text-sm transition-colors">Corporate Governance</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest mb-6 text-sm">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="text-slate-400 text-sm">Frontier Global Headquarters<br/>100 Industrial Parkway<br/>Financial District, Suite 4400</li>
+                        <li class="text-slate-400 text-sm pt-2">investors@frontier-resources.com</li>
+                        <li class="text-slate-400 text-sm">+1 (800) 555-0199</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-600 text-xs">© 2026 Frontier Natural Resources. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-slate-600 hover:text-white text-xs transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-slate-600 hover:text-white text-xs transition-colors">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-black/90', 'backdrop-blur-md', 'shadow-lg');
+                    navbar.classList.remove('bg-transparent');
+                } else {
+                    navbar.classList.add('bg-transparent');
+                    navbar.classList.remove('bg-black/90', 'backdrop-blur-md', 'shadow-lg');
+                }
+            });
+
+            // 2. Scroll Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // 3. Counter Animation for Stats
+            const counters = document.querySelectorAll('.counter');
+            let hasCounted = false;
+
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasCounted) {
+                        hasCounted = true;
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const duration = 2000; // 2 seconds
+                            const increment = target / (duration / 16); // 60fps
+                            
+                            let current = 0;
+                            const updateCounter = () => {
+                                current += increment;
+                                if (current < target) {
+                                    // format numbers based on if they have decimals
+                                    counter.innerText = target % 1 !== 0 ? current.toFixed(1) : Math.ceil(current);
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    counter.innerText = target;
+                                }
+                            };
+                            updateCounter();
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            // Observe the stats section specifically for the counter trigger
+            const statsSection = document.querySelector('.counter').closest('section');
+            if(statsSection) counterObserver.observe(statsSection);
+
+        });
+    </script>
+</body>
+</html>
